@@ -24,6 +24,14 @@ Implement the feature
 [] feat: structure practice
 [] feat: writing practice
 [] feat: reading comprehension
+[] feat: learning partner / companion
+[] feat: Ranking alltime, this month, this week, today
+[] feat: reward
+[] feat: shop
+[] feat: multiplayer
+[] feat: online meeting / virtual meeting / peer to peer language learning (ome tv)
+[] feat: challenges
+[] feat: generate custom story (user can choose theme and other)
 
 Testing
 [] Done
