@@ -32,6 +32,13 @@ Implement the feature
 [] feat: online meeting / virtual meeting / peer to peer language learning (ome tv)
 [] feat: challenges
 [] feat: generate custom story (user can choose theme and other)
+[] feat: Instant Feedback
+[] feat: comprehensive coverage
+[] feat: realistic scenarios
+[] feat: interactive practice
+[] feat: progress tracking
+[] feat: test tips
+[] feat: Adaptive Difficulty
 
 Testing
 [] Done
