@@ -49,3 +49,8 @@ Deploy
 Future Development
 [] Login
 [] History
+
+Twitter English Bot
+buat bot yang tiap hari post pertanyaan soal grammar englih. 
+nah trus nanti hasilnya dibuat leaderboard (bisa diliat di web buat detailnya)
+tpi tiap minggu bakal dipost siapa saja top leaderboard minggu itu.
