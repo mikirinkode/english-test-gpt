@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grammar Learning</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .editable {
+        border-bottom: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 flex-col items-center justify-center min-h-screen">
+    <div id="fill-the-blank" class="bg-white border-2 rounded-lg max-w-7xl m-10 p-5">
+      <div class="flex items-center gap-5">
+        <h1 class="text-xl">Fill The Blank</h1>
+        <button
+          class="bg-white border-2 hover:bg-blue-500 hover:text-white text-blue-500 font-medium py-1 px-2 rounded"
+        >
+          Refresh
+        </button>
+      </div>
+
+      <div class="flex flex-col items-end mt-4">
+        <p class="text-m">
+          Yesterday, I went to the park. I saw a bird that was very colorful. I
+          decided to photograph it. After that, I ate a delicious sandwich. It
+          was a wonderful day.
+        </p>
+        <button
+        id="btn-submit"
+          class="bg-blue-500 hover:bg-blue-400 hover:outline-2 text-white font-bold py-1 px-4 rounded"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+
+    <div id="correct-answer" class="hidden bg-white border-2 rounded-lg max-w-7xl m-10 p-5">
+        <div class="flex-col items-center">
+            <h1 class="text-xl">Correct Answer</h1>
+            <p class="text-m mt-4">
+                Yesterday, I went to the park. I saw a bird that was very colorful. I
+                decided to photograph it. After that, I ate a delicious sandwich. It
+                was a wonderful day.
+              </p>
+          </div>
+    </div>
+    
+    <script src="script.js"></script>
+  </body>
+</html>
