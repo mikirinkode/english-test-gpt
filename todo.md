@@ -24,6 +24,21 @@ Implement the feature
 [] feat: structure practice
 [] feat: writing practice
 [] feat: reading comprehension
+[] feat: learning partner / companion
+[] feat: Ranking alltime, this month, this week, today
+[] feat: reward
+[] feat: shop
+[] feat: multiplayer
+[] feat: online meeting / virtual meeting / peer to peer language learning (ome tv)
+[] feat: challenges
+[] feat: generate custom story (user can choose theme and other)
+[] feat: Instant Feedback
+[] feat: comprehensive coverage
+[] feat: realistic scenarios
+[] feat: interactive practice
+[] feat: progress tracking
+[] feat: test tips
+[] feat: Adaptive Difficulty
 
 Testing
 [] Done
@@ -34,3 +49,8 @@ Deploy
 Future Development
 [] Login
 [] History
+
+Twitter English Bot
+buat bot yang tiap hari post pertanyaan soal grammar englih. 
+nah trus nanti hasilnya dibuat leaderboard (bisa diliat di web buat detailnya)
+tpi tiap minggu bakal dipost siapa saja top leaderboard minggu itu.
