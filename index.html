@@ -9,13 +9,23 @@
       rel="stylesheet"
     />
     <style>
+      .underline {
+        border-bottom: 2px solid #ccc;
+        display: inline-block;
+        outline: none;
+        text-decoration: none;
+        text-align: center;
+      }
       .editable {
         border-bottom: 1px solid #ccc;
       }
     </style>
   </head>
   <body class="bg-gray-100 flex-col items-center justify-center min-h-screen">
-    <div id="fill-the-blank" class="bg-white border-2 rounded-lg max-w-2xl m-10 p-5 mx-auto">
+    <div
+      id="fill-the-blank"
+      class="bg-white border-2 rounded-lg max-w-2xl m-10 p-5 mx-auto"
+    >
       <div class="flex items-center gap-5">
         <h1 class="text-xl">Fill The Blank</h1>
         <button
@@ -27,25 +37,34 @@
       </div>
 
       <p id="loading" class="hidden">Loading...</p>
-      <div id="question-layout" class="hidden flex flex-col items-start mt-4">
-        <p id="question" class="text-m">Lorem Ipsum Sir Dolor Amet.</p>
+      <article
+        id="question-layout"
+        class="hidden flex flex-col items-start mt-4"
+      >
+        <!-- <p id="question" class="text-m">Lorem Ipsum Sir Dolor Amet.</p> -->
+        <section class="question-list"></section>
         <button
-        id="btn-submit"
+          id="btn-submit"
           class="bg-blue-500 hover:bg-blue-400 hover:outline-2 text-white font-bold py-1 px-4 rounded mt-4"
         >
           Submit
         </button>
-      </div>
+      </article>
     </div>
 
-    <div id="correct-answer" class="hidden bg-white border-2 rounded-lg max-w-2xl m-10 p-5 mx-auto">
-        <div class="flex-col items-center">
-            <h1 class="text-xl">The Answer</h1>
-            <p id="answer" class="text-m mt-4">Lorem Ipsum Sir Dolor Amet.</p>
-            <p id="original_sentence" class="text-m mt-4">Lorem Ipsum Sir Dolor Amet.</p>
-          </div>
+    <div
+      id="correct-answer"
+      class="hidden bg-white border-2 rounded-lg max-w-2xl m-10 p-5 mx-auto"
+    >
+      <h1 class="text-xl">The Answer</h1>
+      <section class="answer-list"></section>
+      <!-- <div class="flex-col items-center">
+        <p id="answer" class="text-m mt-4">Lorem Ipsum Sir Dolor Amet.</p>
+        <p id="original_sentence" class="text-m mt-4">Lorem Ipsum.</p>
+        <p id="explaination" class="text-m mt-4">Lorem Ipsum.</p>
+      </div> -->
     </div>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
   </body>

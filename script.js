@@ -4,60 +4,93 @@ const data = {
     {
       role: "system",
       content: `You are an English Expert Teacher. 
-Here you will help me provide a paragraph about random topics. 
+Here you will help me provide a sentence about random topics. 
 We will use this for user to practice english grammar about tenses like present tense, past tense and future tense.
 
-Please return in JSON FORMAT:
-{
-	"question": "I <span class=\"editable underline w-20 h-6 inline-block\" contenteditable=\"true\"></span> football yesterday.",
-	"answer": "played",
-	"original_sentence": "I played football yesterday."
-}`,
+Please return in JSON LIST FORMAT:
+[
+  {
+    "topic": "Past Tense", // The topic of the question could be Present Tense, Past Tense or Future Tense
+    "question": "I _____ football yesterday.",
+    "word_before": "I ",
+    "word_after": " football yesterday.",
+    "answer": "played",
+    "hint": "play",
+    "original_sentence": "I played football yesterday.",
+    "explaination": "The sententce above is past tense, because there is 'yesterday' in the sentence. So we can used Played." // GIVE THE APPROPRIATE EXPLAINATION HERE
+  },
+]`,
     },
     {
       role: "user",
-      content: "Compose a short sentence and return in JSON Format.",
+      content: "Compose 2 short sentences and return in JSON LIST Format.",
     },
   ],
 };
 
-const question_element = document.getElementById("question");
-const answer_element = document.getElementById("answer");
-const original_sentence_element = document.getElementById("original_sentence");
+
+let question_list = document.querySelector(".question-list");
+let answer_list = document.querySelector(".answer-list");
 
 document.querySelector("#btn-refresh").addEventListener("click", function () {
   document.querySelector("#loading").classList.remove("hidden");
   document.querySelector("#question-layout").classList.add("hidden");
+  document.querySelector("#correct-answer").classList.add("hidden");
 
   axios
     .post("https://api.openai.com/v1/chat/completions", data, {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+        Authorization: `Bearer `,
       },
     })
     .then((response) => {
+      // Hide loading
+      document.querySelector("#loading").classList.add("hidden");
+      // Show Question
+      document.querySelector("#question-layout").classList.remove("hidden");
+
       console.log(response.data);
       const message = response.data.choices[0].message.content;
       console.log(message);
 
-      const obj = JSON.parse(message);
+      const objList = JSON.parse(message);
 
-      const question = obj.question;
-      const answer = obj.answer;
-      const original_sentence = obj.original_sentence;
-      console.log(question);
-      console.log(original_sentence);
+      objList.forEach(function (jsonObject) {
+        console.log("the object: ");
+        console.log(jsonObject);
 
-      document.querySelector("#question-layout").classList.remove("hidden");
+        const question = `${jsonObject.word_before} <input type="text"class="underline w-${jsonObject.answer.length * 3}"/> (${jsonObject.hint}) ${jsonObject.word_after}`;
 
-      question_element.innerHTML = "Hello";
-      question_element.innerHTML = question;
-      answer_element.innerHTML = answer;
-      original_sentence_element.innerHTML = original_sentence;
+        console.log(question);
 
-      // Hide loading
-      document.querySelector("#loading").classList.add("hidden");
+        // MAPPING THE QUESTIONS
+        const pClassName = "text-m";
+        let questionElement = document.createElement("p");
+        questionElement.id = "question";
+        questionElement.className = pClassName;
+        questionElement.innerHTML = question;
+
+        question_list.appendChild(questionElement);
+
+        // MAPPING THE ANSWERS
+        let answerElement = document.createElement("p");
+        answerElement.id = "answer";
+        answerElement.className = pClassName;
+        answerElement.innerHTML = `Answer: ${jsonObject.answer}`;
+
+        let originalSentenceElement = document.createElement("p");
+        originalSentenceElement.className = pClassName;
+        originalSentenceElement.innerHTML = `Full sentence: ${jsonObject.original_sentence}`;
+
+        let explainationElement = document.createElement("p");
+        explainationElement.className = pClassName;
+        explainationElement.innerHTML = `Explaination: ${jsonObject.explaination}`;
+
+        answer_list.appendChild(answerElement);
+        answer_list.appendChild(originalSentenceElement);
+        answer_list.appendChild(explainationElement);
+      });
     })
     .catch((error) => {
       console.error(error);
